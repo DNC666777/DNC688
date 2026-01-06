@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DMC的个人主页 - 大数据专业</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+      /* 全局设置：深色背景，全屏高度 */
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      body {
+          font-family: 'Inter', sans-serif;
+          background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%); /* 深色渐变背景 */
+          color: #bdc3c7;
+          min-height: 100vh;
+          padding: 40px 20px;
+          line-height: 1.8;
+      }
+
+      /* 容器：磨砂玻璃效果 */
+      .container {
+          max-width: 900px;
+          margin: 0 auto;
+          background: rgba(25, 25, 35, 0.7); /* 半透明深灰 */
+          backdrop-filter: blur(10px); /* 磨砂玻璃效果 */
+          border-radius: 16px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          padding: 60px;
+          color: #ecf0f1;
+      }
+
+      /* 标题样式 */
+      h1 {
+          text-align: center;
+          font-size: 2.8em;
+          font-weight: 700;
+          margin-bottom: 10px;
+          background: linear-gradient(45deg, #00c3b1, #8a2be2);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+      }
+
+      h2 {
+          font-size: 1.6em;
+          color: #fff;
+          margin: 30px 0 15px 0;
+          padding-bottom: 10px;
+          border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+      }
+
+      h3 {
+          font-size: 1.3em;
+          color: #00c3b1;
+      }
+
+      /* 段落与文字 */
+      p {
+          margin-bottom: 16px;
+          text-align: justify;
+          font-weight: 300;
+      }
+
+      /* 图片优化 */
+      img {
+          border-radius: 12px;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+          margin-bottom: 20px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* 链接样式：青色点缀 */
+      a {
+          color: #00c3b1;
+          text-decoration: none;
+          font-weight: 500;
+          transition: all 0.3s ease;
+      }
+
+      a:hover {
+          color: #8a2be2;
+          text-decoration: underline;
+      }
+
+      /* 技能标签：科技感 */
+      .skills {
+          list-style: none;
+          padding: 0;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin-top: 15px;
+      }
+
+      .skills li {
+          background: rgba(0, 195, 177, 0.1);
+          color: #00c3b1;
+          padding: 8px 16px;
+          border-radius: 8px;
+          font-size: 0.9em;
+          border: 1px solid rgba(0, 195, 177, 0.2);
+          transition: transform 0.2s ease;
+      }
+
+      .skills li:hover {
+          transform: translateY(-2px);
+          background: rgba(0, 195, 177, 0.2);
+      }
+
+      /* 网站列表 */
+      .sites li {
+          line-height: 1.8;
+      }
+
+      /* 联系信息：卡片式 */
+      .contact-info {
+          background: rgba(255, 255, 255, 0.05);
+          padding: 20px;
+          border-radius: 12px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          margin-bottom: 30px;
+          box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .contact-info p {
+          margin-bottom: 12px;
+          display: flex;
+      }
+
+      .contact-info strong {
+          color: #8a2be2;
+          min-width: 50px;
+      }
+
+      /* 表单样式 */
+      label {
+          display: block;
+          margin-bottom: 6px;
+          font-weight: 500;
+          color: #bdc3c7;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      textarea {
+          width: 100%;
+          padding: 12px 15px;
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 8px;
+          color: #fff;
+          font-size: 1em;
+          margin-bottom: 15px;
+          transition: all 0.3s ease;
+      }
+
+      input[type="text"]::placeholder,
+      input[type="email"]::placeholder,
+      textarea::placeholder {
+          color: #7f8c8d;
+      }
+
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      textarea:focus {
+          outline: none;
+          border-color: #00c3b1;
+          box-shadow: 0 0 10px rgba(0, 195, 177, 0.2);
+          background: rgba(0, 195, 177, 0.05);
+      }
+
+      textarea {
+          resize: vertical;
+          min-height: 120px;
+      }
+
+      input[type="submit"] {
+          background: linear-gradient(45deg, #00c3b1, #8a2be2);
+          color: white;
+          padding: 14px 30px;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          font-size: 1em;
+          font-weight: 600;
+          transition: all 0.3s ease;
+          width: 100%;
+      }
+
+      input[type="submit"]:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(0, 195, 177, 0.3);
+      }
+
+      /* 底部留白 */
+      br {
+          line-height: 2;
+      }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>欢迎来到 DMC 的主页</h1>
+  <p style="text-align:center; margin-bottom: 30px; color: #7f8c8d;">大数据专业 · 追求极致的代码与设计</p>
+  <hr style="border: 1px solid rgba(255, 255, 255, 0.1); margin: 40px 0;">
+
+  <h2>👤 关于我</h2>
+  <img src="keai.png" alt="大帅哥" width="120" style="float: left; margin: 0 20px 20px 0;">
+  <p>⼤家好！我叫 <strong>DMC</strong>，今年 22 岁，是⼀名大数据专业的⼤学⽣。我喜欢编程、阅读和踢足球。我的座右铭是：<em>"自律努力上进。"</em></p>
+  <div style="clear: both;"></div> <!-- 清除浮动 -->
+
+  <h2>🛠️ 我的技能</h2>
+  <ul class="skills">
+    <li>数据标注</li>
+    <li>数据挖掘</li>
+    <li>数据分析</li>
+    <li>Python</li>
+    <li>SQL</li>
+  </ul>
+
+  <h2>📅 我的学习计划</h2>
+  <ol>
+    <li>学习 HTML 基础与语义化</li>
+    <li>学习 CSS 样式与布局</li>
+    <li>深入学习 JavaScript 交互</li>
+  </ol>
+
+  <h2>🌐 我喜欢的网站</h2>
+  <ul class="sites">
+    <li><a href="https://www.douyin.com" target="_blank">抖音</a> - 碎片化娱乐与学习</li>
+    <li><a href="https://ai.quark.cn" target="_blank">夸克</a> - 高效的搜索引擎</li>
+    <li><a href="https://www.bilibili.com" target="_blank">哔哩哔哩</a> - 知识的海洋</li>
+  </ul>
+
+  <h2>📬 联系我</h2>
+  <div class="contact-info">
+    <p><strong>📧 邮箱：</strong> <a href="mailto:3207324504@qq.com">3207324504@qq.com</a></p>
+    <p><strong>📱 电话：</strong> 183-8485-9243</p>
+    <p><strong>📍 地址：</strong> 中国重庆市</p>
+  </div>
+
+  <h3>📝 给我留言</h3>
+  <form action="#" method="post">
+    <label for="name">你的名字</label>
+    <input type="text" id="name" name="name" placeholder="请输入您的大名" required>
+
+    <label for="email">你的邮箱</label>
+    <input type="email" id="email" name="email" placeholder="请输入邮箱地址" required>
+
+    <label for="message">留言内容</label>
+    <textarea id="message" name="message" placeholder="想对我说什么？..." required></textarea>
+
+    <input type="submit" value="🚀 提交留言">
+  </form>
+</div>
+</body>
+</html>
